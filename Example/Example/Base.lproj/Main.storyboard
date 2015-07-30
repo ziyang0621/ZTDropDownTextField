@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="t3B-DY-IUZ" customClass="ZTDropDownTextField" customModule="ZTDropDownTextField">
+                                <rect key="frame" x="160" y="84" width="280" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7Eo-RG-CR9"/>
+                                    <constraint firstAttribute="width" constant="280" id="CqO-8h-3sw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmJ-fx-cTr">
+                                <rect key="frame" x="160" y="144" width="280" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZAT-UT-peA"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="t3B-DY-IUZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="64" id="2wr-52-ipU"/>
+                            <constraint firstItem="hmJ-fx-cTr" firstAttribute="top" secondItem="t3B-DY-IUZ" secondAttribute="bottom" constant="30" id="NQf-6C-RDt"/>
+                            <constraint firstItem="hmJ-fx-cTr" firstAttribute="leading" secondItem="t3B-DY-IUZ" secondAttribute="leading" id="ZTW-Sy-Gct"/>
+                            <constraint firstItem="hmJ-fx-cTr" firstAttribute="trailing" secondItem="t3B-DY-IUZ" secondAttribute="trailing" id="fpR-LL-kFI"/>
+                            <constraint firstAttribute="centerX" secondItem="t3B-DY-IUZ" secondAttribute="centerX" id="rdH-0y-Dz3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addressSummaryTextView" destination="hmJ-fx-cTr" id="gII-aj-adz"/>
+                        <outlet property="fullAddressTextField" destination="t3B-DY-IUZ" id="F2b-rL-J3U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
