@@ -29,8 +29,8 @@ public class ZTDropDownTextField: UITextField {
     public var dropDownTableView: UITableView!
     public var rowHeight:CGFloat = 50
     public var dropDownTableViewHeight: CGFloat = 150
-    public weak var dataSourceDelegate: ZTDropDownTextFieldDataSourceDelegate?
     public var animationStyle: ZTDropDownAnimationStyle = .Basic
+    public weak var dataSourceDelegate: ZTDropDownTextFieldDataSourceDelegate?
     private var heightConstraint: NSLayoutConstraint!
     
     // MARK: Init Methods
