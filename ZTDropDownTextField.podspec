@@ -40,5 +40,6 @@ s.dependency 'pop', '~> 1.0.7'
 
 # 8
 s.source_files = "ZTDropDownTextField/ZTDropDownTextField.swift"
+s.source_files = "ZTDropDownTextField/ZTDropDownTextField-Bridging-Header.h"
 
 end
