@@ -36,8 +36,9 @@ s.source = { :git => "https://github.com/ziyang0621/ZTDropDownTextField.git", :t
 
 # 7
 s.framework = "UIKit"
+s.dependency 'pop', '~> 1.0.7'
 
 # 8
-s.source_files = "ZTDropDownTextField/ZTDropDownTextField/*.swift"
+s.source_files = "ZTDropDownTextField/ZTDropDownTextField.swift"
 
 end
