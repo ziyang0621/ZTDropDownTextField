@@ -39,6 +39,6 @@ s.framework = "UIKit"
 s.dependency 'pop', '~> 1.0'
 
 # 8
-s.source_files = 'ZTDropDownTextField/ZTDropDownTextField/**/ZTDropDownTextField.swift', 'ZTDropDownTextField/ZTDropDownTextField/**/ZTDropDownTextField-Bridging-Header.h'
+s.source_files = 'ZTDropDownTextField/ZTDropDownTextField.swift', 'ZTDropDownTextField/ZTDropDownTextField-Bridging-Header.h'
 
 end
