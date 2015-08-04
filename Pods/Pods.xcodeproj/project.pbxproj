@@ -65,7 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1D668586E573F650A984D110C5C99F90 /* PBXContainerItemProxy */ = {
+		899A3AD751FF7D6C0D6DF3E5CAB0F344 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -372,7 +372,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				6D5CFDD5FAB58A348D2187AB269A4983 /* PBXTargetDependency */,
+				DA6EA6319D0C72930C095FAFA9E78215 /* PBXTargetDependency */,
 			);
 			name = "Pods-ZTDropDownTextField";
 			productName = "Pods-ZTDropDownTextField";
@@ -444,11 +444,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6D5CFDD5FAB58A348D2187AB269A4983 /* PBXTargetDependency */ = {
+		DA6EA6319D0C72930C095FAFA9E78215 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = pop;
 			target = 47C800E42623009B7192B025B3DD25A1 /* pop */;
-			targetProxy = 1D668586E573F650A984D110C5C99F90 /* PBXContainerItemProxy */;
+			targetProxy = 899A3AD751FF7D6C0D6DF3E5CAB0F344 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

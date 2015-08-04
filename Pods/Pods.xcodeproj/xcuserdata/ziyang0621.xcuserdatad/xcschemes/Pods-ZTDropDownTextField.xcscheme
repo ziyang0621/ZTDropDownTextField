@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FB7CA6221C5C331B956AD10D"
+               BlueprintIdentifier = "B5ADCC5F73AE36C2222E5234"
                BuildableName = "libPods-ZTDropDownTextField.a"
                BlueprintName = "Pods-ZTDropDownTextField"
                ReferencedContainer = "container:Pods.xcodeproj">

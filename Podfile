@@ -3,7 +3,7 @@
 
 target 'ZTDropDownTextField' do
 
-pod 'pop'
+pod 'pop', '~> 1.0'
 
 end
 
