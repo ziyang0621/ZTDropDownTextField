@@ -9,11 +9,7 @@
 import UIKit
 
 // MARK: Animation Style Enum
-public enum ZTDropDownAnimationStyle : Int {
-    case Basic
-    case Slide
-    case Expand
-}
+
 
 
 // MARK: Dropdown Delegate
@@ -24,6 +20,12 @@ public protocol ZTDropDownTextFieldDataSourceDelegate: NSObjectProtocol {
 }
 
 public class ZTDropDownTextField: UITextField {
+    
+    public enum ZTDropDownAnimationStyle : Int {
+        case Basic
+        case Slide
+        case Expand
+    }
     
     // MARK: Instance Variables
     public var dropDownTableView: UITableView!
@@ -37,7 +39,6 @@ public class ZTDropDownTextField: UITextField {
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupTextField()
-        UITableViewCellSelectionStyle.Blue
     }
     
     override init(frame: CGRect) {
