@@ -9,8 +9,11 @@
 import UIKit
 
 // MARK: Animation Style Enum
-
-
+public enum ZTDropDownAnimationStyle {
+    case Basic
+    case Slide
+    case Expand
+}
 
 // MARK: Dropdown Delegate
 public protocol ZTDropDownTextFieldDataSourceDelegate: NSObjectProtocol {
@@ -20,12 +23,6 @@ public protocol ZTDropDownTextFieldDataSourceDelegate: NSObjectProtocol {
 }
 
 public class ZTDropDownTextField: UITextField {
-    
-    public enum ZTDropDownAnimationStyle : Int {
-        case Basic
-        case Slide
-        case Expand
-    }
     
     // MARK: Instance Variables
     public var dropDownTableView: UITableView!
