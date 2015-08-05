@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         fullAddressTextField.dataSourceDelegate = self
-        fullAddressTextField.animationStyle = .Slide
+        fullAddressTextField.animationStyle = .Expand
         fullAddressTextField.addTarget(self, action: "fullAddressTextDidChanged:", forControlEvents:.EditingChanged)
     }
     
