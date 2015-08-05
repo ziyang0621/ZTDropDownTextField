@@ -14,6 +14,7 @@
     * [DataSourceDelegate](#datasourcedelegate)
  * [Customization](#customization)
  * [Requirments](#requirements)
+ * [Credit](#credit)
  * [Remains to do](#remains-to-do)
  * [License](#license)
 
@@ -29,13 +30,41 @@
  * [x] Swift Dynamic Framework, easy to integrate
 
 ## Demo
+<table>
+<tr>
+<td>
+Slide Animation:
+</td>
+<td>
+Expand Animation:
+</td>
+</tr>
+<tr>
+<td>
+<img src="https://raw.githubusercontent.com/ziyang0621/ZTDropDownTextField/master/ZTDropDownTextField-Slide.gif" alt="">
+</td>
+<td>
+<img src="https://raw.githubusercontent.com/ziyang0621/ZTDropDownTextField/master/ZTDropDownTextField-Expand.gif" alt="">
+</td>
+</tr>
 
-Portrait:<br/>
-[![Portrait DropDown](ZTDropDownTextField-Portrait.gif)](ZTDropDownTextField-Portrait.gif)
-<br/>
-Landscape:<br/>
-[![Landscape DropDown](ZTDropDownTextField-Landscape.gif)](ZTDropDownTextField-Landscape.gif)
-<br/>
+<tr>
+<td>
+Portrait:
+</td>
+<td>
+Landscape:
+</td>
+</tr>
+<tr>
+<td>
+<img src="https://raw.githubusercontent.com/ziyang0621/ZTDropDownTextField/master/ZTDropDownTextField-Portrait.gif" alt="">
+</td>
+<td>
+<img src="https://raw.githubusercontent.com/ziyang0621/ZTDropDownTextField/master/ZTDropDownTextField-Landscape.gif" alt="">
+</td>
+</tr>
+</table>
 
 ## Installation
 
@@ -134,6 +163,12 @@ The `rowHeight` and `dropDownTableViewHeight` can be customized by changing the 
 
 - [ ] Swift 2.0
 - [ ] More customizations
+
+ 
+## Credit
+
+- [Facebook pop](https://github.com/facebook/pop)
+
 
 ## License
 
