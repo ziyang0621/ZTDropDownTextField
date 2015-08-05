@@ -30,41 +30,16 @@
  * [x] Swift Dynamic Framework, easy to integrate
 
 ## Demo
-<table>
-<tr>
-<td>
-Slide Animation:
-</td>
-<td>
-Expand Animation:
-</td>
-</tr>
-<tr>
-<td>
-<img src="https://raw.githubusercontent.com/ziyang0621/ZTDropDownTextField/master/ZTDropDownTextField-Slide.gif" alt="">
-</td>
-<td>
-<img src="https://raw.githubusercontent.com/ziyang0621/ZTDropDownTextField/master/ZTDropDownTextField-Expand.gif" alt="">
-</td>
-</tr>
 
-<tr>
-<td>
-Portrait:
-</td>
-<td>
-Landscape:
-</td>
-</tr>
-<tr>
-<td>
-<img src="https://raw.githubusercontent.com/ziyang0621/ZTDropDownTextField/master/ZTDropDownTextField-Portrait.gif" alt="">
-</td>
-<td>
-<img src="https://raw.githubusercontent.com/ziyang0621/ZTDropDownTextField/master/ZTDropDownTextField-Landscape.gif" alt="">
-</td>
-</tr>
-</table>
+Slide Animation  | Expand Animation
+------------- | -------------
+[![Slide Animation](ZTDropDownTextField-Slide.gif)](ZTDropDownTextField-Slide.gif)  | [![Slide Animation](ZTDropDownTextField-Expand.gif)](ZTDropDownTextField-Expand.gif)
+
+Portrait | Landscape
+------------- | -------------
+[![Portrait](ZTDropDownTextField-Portrait.gif)](ZTDropDownTextField-Portrait.gif)  | [![Slide Animation](ZTDropDownTextField-Landscape.gif)](ZTDropDownTextField-Lanscape.gif)
+
+
 
 ## Installation
 
