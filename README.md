@@ -23,6 +23,7 @@
 ## Features
 
  * [x] Provide dropdown suggestions below UITextField
+ * [x] Alterantive of UISearchController
  * [x] Dropdown list will hide automatially, when user tap outside of it
  * [x] Implemented with AutoLayout, support both portrait and landscape
  * [x] Provide delegate methods for dropdown list events
