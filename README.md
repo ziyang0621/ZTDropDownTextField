@@ -118,12 +118,13 @@ extension ViewController: ZTDropDownTextFieldDataSourceDelegate {
    
 ## Customization
 
-The dropdown list can have 3 different animations, including `Basic`, `Slide` and `Expand`. See the animations in [Demo](#demo).
+The dropdown list can have 3 different animations, including `Basic`, `Slide`, `Expand` and `Flip`. See the animations in [Demo](#demo).
 ```swift
 public enum ZTDropDownAnimationStyle {
     case Basic
     case Slide
     case Expand
+    case Flip
 }
 ```
 ```swift
