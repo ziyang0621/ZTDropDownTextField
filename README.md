@@ -31,15 +31,13 @@
 
 ## Demo
 
-Slide Animation  | Expand Animation
-------------- | -------------
-[![Slide Animation](ZTDropDownTextField-Slide.gif)](ZTDropDownTextField-Slide.gif)  | [![Slide Animation](ZTDropDownTextField-Expand.gif)](ZTDropDownTextField-Expand.gif)
-
 Portrait | Landscape
 ------------- | -------------
-[![Portrait](ZTDropDownTextField-Portrait.gif)](ZTDropDownTextField-Portrait.gif)  | [![Slide Animation](ZTDropDownTextField-Landscape.gif)](ZTDropDownTextField-Lanscape.gif)
+[![Portrait](ZTDropDownTextField-Map-Portrait.gif)](ZTDropDownTextField-Portrait.gif)  | [![Slide Animation](ZTDropDownTextField-Map-Landscape.gif)](ZTDropDownTextField-Lanscape.gif)
 
-
+Slide Animation  | Expand Animation | Flip Animation 
+------------- | ------------- | ---------------
+[![Slide Animation](ZTDropDownTextField-Slide.gif)](ZTDropDownTextField-Slide.gif)  | [![Slide Animation](ZTDropDownTextField-Expand.gif)](ZTDropDownTextField-Expand.gif) |  [![Flip Animation](ZTDropDownTextField-Flip.gif)](ZTDropDownTextField-Flip.gif)
 
 ## Installation
 
@@ -61,7 +59,6 @@ Portrait | Landscape
 ### Example
 1. Download the [latest code version](https://github.com/ziyang0621/ZTDropDownTextField/archive/master.zip)
 2. Double click to open the `ZTDropDownTextField.xcworkspace` file
-3. Select the `Example` as the targer, and run it.
 
 ## Usage
 
