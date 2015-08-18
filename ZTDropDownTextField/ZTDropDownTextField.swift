@@ -13,6 +13,7 @@ public enum ZTDropDownAnimationStyle {
     case Basic
     case Slide
     case Expand
+    case Flip
 }
 
 // MARK: Dropdown Delegate
@@ -102,6 +103,14 @@ public class ZTDropDownTextField: UITextField {
             let height = appear ? dropDownTableViewHeight : 0
             springAnimation.toValue = NSValue(CGSize: CGSize(width: width, height: height))
             dropDownTableView.pop_addAnimation(springAnimation, forKey: "expand")
+        case .Flip:
+            var identity = CATransform3DIdentity
+            identity.m34 = -1.0/1000
+            let angle = appear ? CGFloat(0) : CGFloat(M_PI_2)
+            let rotationTransform = CATransform3DRotate(identity, angle, 0.0, 1.0, 0.0)
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.dropDownTableView.layer.transform = rotationTransform
+            })
         }
     }
     

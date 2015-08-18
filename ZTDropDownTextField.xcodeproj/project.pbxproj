@@ -15,6 +15,8 @@
 		859EFD8C1B7156150020369D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859EFD8B1B7156150020369D /* ViewController.swift */; };
 		859EFD8E1B7156270020369D /* ZTDropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859EFD8D1B7156270020369D /* ZTDropDownTextField.swift */; };
 		859EFD901B7156370020369D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 859EFD8F1B7156370020369D /* Main.storyboard */; };
+		85F0C8E81B83DB4300653F95 /* SimpleDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F0C8E71B83DB4300653F95 /* SimpleDemoViewController.swift */; };
+		85F0C8EA1B83DD8500653F95 /* MapViewDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F0C8E91B83DD8500653F95 /* MapViewDemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		859EFD8B1B7156150020369D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		859EFD8D1B7156270020369D /* ZTDropDownTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTDropDownTextField.swift; sourceTree = "<group>"; };
 		859EFD8F1B7156370020369D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		85F0C8E71B83DB4300653F95 /* SimpleDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleDemoViewController.swift; sourceTree = "<group>"; };
+		85F0C8E91B83DD8500653F95 /* MapViewDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDemoViewController.swift; sourceTree = "<group>"; };
 		989C96737EDB1D7639B921F3 /* Pods-ZTDropDownTextField.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZTDropDownTextField.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZTDropDownTextField/Pods-ZTDropDownTextField.debug.xcconfig"; sourceTree = "<group>"; };
 		A1D09CB99FF571897D4E1F1C /* Pods-ZTDropDownTextField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZTDropDownTextField.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZTDropDownTextField/Pods-ZTDropDownTextField.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +102,8 @@
 				859EFD8D1B7156270020369D /* ZTDropDownTextField.swift */,
 				859EFD681B7154010020369D /* AppDelegate.swift */,
 				859EFD8B1B7156150020369D /* ViewController.swift */,
+				85F0C8E71B83DB4300653F95 /* SimpleDemoViewController.swift */,
+				85F0C8E91B83DD8500653F95 /* MapViewDemoViewController.swift */,
 				859EFD8F1B7156370020369D /* Main.storyboard */,
 				859EFD6F1B7154010020369D /* Images.xcassets */,
 				859EFD711B7154010020369D /* LaunchScreen.xib */,
@@ -276,9 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85F0C8EA1B83DD8500653F95 /* MapViewDemoViewController.swift in Sources */,
 				859EFD8C1B7156150020369D /* ViewController.swift in Sources */,
 				859EFD691B7154010020369D /* AppDelegate.swift in Sources */,
 				859EFD8E1B7156270020369D /* ZTDropDownTextField.swift in Sources */,
+				85F0C8E81B83DB4300653F95 /* SimpleDemoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
