@@ -41,4 +41,8 @@ s.dependency 'pop', '~> 1.0.9'
 # 8
 s.source_files = 'ZTDropDownTextField/ZTDropDownTextField.swift', 'ZTDropDownTextField/ZTDropDownTextField-Bridging-Header.h'
 
+s.prepare_command = <<-CMD
+                        find Pods -regex 'Pods/pop.*\\.h' -print0 | xargs -0 sed -i '' 's/\\(<\\)pop\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'
+                   CMD
+
 end
