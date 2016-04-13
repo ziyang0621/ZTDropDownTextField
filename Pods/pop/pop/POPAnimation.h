@@ -45,9 +45,24 @@
 @property (readonly, nonatomic) POPAnimationTracer *tracer;
 
 /**
+ @abstract Optional block called on animation start.
+ */
+@property (copy, nonatomic) void (^animationDidStartBlock)(POPAnimation *anim);
+
+/**
+ @abstract Optional block called when value meets or exceeds to value.
+ */
+@property (copy, nonatomic) void (^animationDidReachToValueBlock)(POPAnimation *anim);
+
+/**
  @abstract Optional block called on animation completion.
  */
 @property (copy, nonatomic) void (^completionBlock)(POPAnimation *anim, BOOL finished);
+
+/**
+ @abstract Optional block called each frame animation is applied.
+ */
+@property (copy, nonatomic) void (^animationDidApplyBlock)(POPAnimation *anim);
 
 /**
  @abstract Flag indicating whether animation should be removed on completion.
@@ -158,5 +173,16 @@ When combined with the autoreverses property, a singular animation is effectivel
  @returns The animation currently attached, or nil if no such animation exists.
  */
 - (id)pop_animationForKey:(NSString *)key;
+
+@end
+
+/**
+ *  This implementation of NSCopying does not do any copying of animation's state, but only configuration.
+ *  i.e. you cannot copy an animation and expect to apply it to a view and have the copied animation pick up where the original left off.
+ *  Two common uses of copying animations:
+ *  * you need to apply the same animation to multiple different views.
+ *  * you need to absolutely ensure that the the caller of your function cannot mutate the animation once it's been passed in.
+ */
+@interface POPAnimation (NSCopying) <NSCopying>
 
 @end

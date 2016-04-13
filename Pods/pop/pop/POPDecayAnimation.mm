@@ -80,7 +80,11 @@ DEFINE_RW_PROPERTY(POPDecayAnimationState, deceleration, setDeceleration:, CGFlo
 
   POPValueType velocityType = POPSelectValueType(self.originalVelocity, supportedVelocityTypes, POP_ARRAY_COUNT(supportedVelocityTypes));
   if (velocityType == kPOPValueFloat) {
+#if CGFLOAT_IS_DOUBLE
+    CGFloat originalVelocityFloat = [(NSNumber *)self.originalVelocity doubleValue];
+#else
     CGFloat originalVelocityFloat = [(NSNumber *)self.originalVelocity floatValue];
+#endif
     NSNumber *negativeOriginalVelocityNumber = @(-originalVelocityFloat);
     reversedVelocity = negativeOriginalVelocityNumber;
   } else if (velocityType == kPOPValueInteger) {
@@ -176,6 +180,24 @@ DEFINE_RW_PROPERTY(POPDecayAnimationState, deceleration, setDeceleration:, CGFlo
   if (__state->deceleration) {
     [s appendFormat:@"; deceleration = %f", __state->deceleration];
   }
+}
+
+@end
+
+@implementation POPDecayAnimation (NSCopying)
+
+- (instancetype)copyWithZone:(NSZone *)zone {
+  
+  POPDecayAnimation *copy = [super copyWithZone:zone];
+  
+  if (copy) {
+    // Set the velocity to the animation's original velocity, not its current.
+    copy.velocity = self.originalVelocity;
+    copy.deceleration = self.deceleration;
+    
+  }
+  
+  return copy;
 }
 
 @end

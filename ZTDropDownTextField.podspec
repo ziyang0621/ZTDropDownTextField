@@ -8,7 +8,7 @@ s.summary = "ZTDropDownTextField create a dropdown list for your textField."
 s.requires_arc = true
 
 # 2
-s.version = "0.1.5"
+s.version = "0.1.6"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
@@ -36,7 +36,7 @@ s.source = { :git => "https://github.com/ziyang0621/ZTDropDownTextField.git", :t
 
 # 7
 s.framework = "UIKit"
-s.dependency 'pop', '~> 1.0'
+s.dependency 'pop', '~> 1.0.9'
 
 # 8
 s.source_files = 'ZTDropDownTextField/ZTDropDownTextField.swift', 'ZTDropDownTextField/ZTDropDownTextField-Bridging-Header.h'

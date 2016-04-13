@@ -7,15 +7,15 @@
  of patent rights can be found in the PATENTS file in the same directory.
  */
 
+#import "POPAnimationExtras.h"
 #import "POPAnimationInternal.h"
-#import "POPAnimationTracerInternal.h"
 
 #import <objc/runtime.h>
 
-#import "POPAnimationExtras.h"
-#import "POPAnimationRuntime.h"
-#import "POPAnimatorPrivate.h"
 #import "POPAction.h"
+#import "POPAnimationRuntime.h"
+#import "POPAnimationTracerInternal.h"
+#import "POPAnimatorPrivate.h"
 
 using namespace POP;
 
@@ -118,7 +118,10 @@ using namespace POP;
 }
 
 FB_PROPERTY_GET(POPAnimationState, type, POPAnimationType);
+DEFINE_RW_PROPERTY_OBJ_COPY(POPAnimationState, animationDidStartBlock, setAnimationDidStartBlock:, POPAnimationDidStartBlock);
+DEFINE_RW_PROPERTY_OBJ_COPY(POPAnimationState, animationDidReachToValueBlock, setAnimationDidReachToValueBlock:, POPAnimationDidReachToValueBlock);
 DEFINE_RW_PROPERTY_OBJ_COPY(POPAnimationState, completionBlock, setCompletionBlock:, POPAnimationCompletionBlock);
+DEFINE_RW_PROPERTY_OBJ_COPY(POPAnimationState, animationDidApplyBlock, setAnimationDidApplyBlock:, POPAnimationDidApplyBlock);
 DEFINE_RW_PROPERTY_OBJ_COPY(POPAnimationState, name, setName:, NSString*);
 DEFINE_RW_PROPERTY(POPAnimationState, beginTime, setBeginTime:, CFTimeInterval);
 DEFINE_RW_FLAG(POPAnimationState, removedOnCompletion, removedOnCompletion, setRemovedOnCompletion:);
@@ -264,6 +267,37 @@ POPAnimationState *POPAnimationGetState(POPAnimation *a)
 - (id)pop_animationForKey:(NSString *)key
 {
   return [[POPAnimator sharedAnimator] animationForObject:self key:key];
+}
+
+@end
+
+@implementation POPAnimation (NSCopying)
+
+- (instancetype)copyWithZone:(NSZone *)zone
+{
+  /*
+   * Must use [self class] instead of POPAnimation so that subclasses can call this via super.
+   * Even though POPAnimation and POPPropertyAnimation throw exceptions on init,
+   * it's safe to call it since you can only copy objects that have been successfully created.
+   */
+  POPAnimation *copy = [[[self class] allocWithZone:zone] init];
+  
+  if (copy) {
+    copy.name = self.name;
+    copy.beginTime = self.beginTime;
+    copy.delegate = self.delegate;
+    copy.animationDidStartBlock = self.animationDidStartBlock;
+    copy.animationDidReachToValueBlock = self.animationDidReachToValueBlock;
+    copy.completionBlock = self.completionBlock;
+    copy.animationDidApplyBlock = self.animationDidApplyBlock;
+    copy.removedOnCompletion = self.removedOnCompletion;
+    
+    copy.autoreverses = self.autoreverses;
+    copy.repeatCount = self.repeatCount;
+    copy.repeatForever = self.repeatForever;
+  }
+    
+  return copy;
 }
 
 @end

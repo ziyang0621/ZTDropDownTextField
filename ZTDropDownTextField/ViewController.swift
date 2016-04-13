@@ -40,7 +40,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("mainCell") as? UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("mainCell")
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: "mainCell")
         }

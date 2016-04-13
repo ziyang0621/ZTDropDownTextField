@@ -34,7 +34,7 @@ public class ZTDropDownTextField: UITextField {
     private var heightConstraint: NSLayoutConstraint!
     
     // MARK: Init Methods
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupTextField()
     }
@@ -47,7 +47,7 @@ public class ZTDropDownTextField: UITextField {
     
     // MARK: Setup Methods
     private func setupTextField() {
-        addTarget(self, action: "editingChanged:", forControlEvents:.EditingChanged)
+        addTarget(self, action: #selector(ZTDropDownTextField.editingChanged(_:)), forControlEvents:.EditingChanged)
     }
     
     private func setupTableView() {
@@ -66,7 +66,7 @@ public class ZTDropDownTextField: UITextField {
             superview!.addSubview(dropDownTableView)
             superview!.bringSubviewToFront(dropDownTableView)
             
-            dropDownTableView.setTranslatesAutoresizingMaskIntoConstraints(false)
+            dropDownTableView.translatesAutoresizingMaskIntoConstraints = false
             
             let leftConstraint = NSLayoutConstraint(item: dropDownTableView, attribute: .Left, relatedBy: .Equal, toItem: self, attribute: .Left, multiplier: 1, constant: 0)
             let rightConstraint =  NSLayoutConstraint(item: dropDownTableView, attribute: .Right, relatedBy: .Equal, toItem: self, attribute: .Right, multiplier: 1, constant: 0)
@@ -75,7 +75,7 @@ public class ZTDropDownTextField: UITextField {
             
             NSLayoutConstraint.activateConstraints([leftConstraint, rightConstraint, heightConstraint, topConstraint])
             
-            let tapGesture = UITapGestureRecognizer(target: self, action: "tapped:")
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ZTDropDownTextField.tapped(_:)))
             tapGesture.numberOfTapsRequired = 1
             tapGesture.cancelsTouchesInView = false
             superview!.addGestureRecognizer(tapGesture)
@@ -118,18 +118,18 @@ public class ZTDropDownTextField: UITextField {
     func tapped(gesture: UIGestureRecognizer) {
         let location = gesture.locationInView(superview)
         if !CGRectContainsPoint(dropDownTableView.frame, location) {
-            if let dropDownTableView = dropDownTableView {
+            if (dropDownTableView) != nil {
                 self.tableViewAppearanceChange(false)
             }
         }
     }
     
     func editingChanged(textField: UITextField) {
-        if count(textField.text) > 0 {
+        if textField.text!.characters.count > 0 {
             setupTableView()
             self.tableViewAppearanceChange(true)
         } else {
-            if let dropDownTableView = dropDownTableView {
+            if (dropDownTableView) != nil {
                 self.tableViewAppearanceChange(false)
             }
         }

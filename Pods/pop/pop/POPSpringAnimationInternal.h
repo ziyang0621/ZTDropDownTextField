@@ -7,6 +7,8 @@
  of patent rights can be found in the PATENTS file in the same directory.
  */
 
+#import <cmath>
+
 #import "POPAnimationExtras.h"
 #import "POPPropertyAnimationInternal.h"
 
@@ -46,7 +48,7 @@ struct _POPSpringAnimationState : _POPPropertyAnimationState
       const CGFloat *previous2Values = previous2Vec->data();
 
       for (NSUInteger idx = 0; idx < count; idx++) {
-        if ((fabsf(toValues[idx] - previousValues[idx]) >= t) || (fabsf(previous2Values[idx] - previousValues[idx]) >= t)) {
+          if ((std::abs(toValues[idx] - previousValues[idx]) >= t) || (std::abs(previous2Values[idx] - previousValues[idx]) >= t)) {
           return false;
         }
       }

@@ -17,10 +17,10 @@
 #import <UIKit/UIKit.h>
 #endif
 
-#import "POPVector.h"
-#import "POPAnimationRuntime.h"
 #import "POPCGUtils.h"
+#import "POPDefines.h"
 #import "POPGeometry.h"
+#import "POPVector.h"
 
 static Boolean pointerEqual(const void *ptr1, const void *ptr2) {
   return ptr1 == ptr2;
@@ -36,7 +36,7 @@ CFMutableDictionaryRef POPDictionaryCreateMutableWeakPointerToWeakPointer(NSUInt
 
   // weak, pointer keys
   kcb.retain = NULL;
-  kcb.retain = NULL;
+  kcb.release = NULL;
   kcb.equal = pointerEqual;
   kcb.hash = pointerHash;
 
@@ -101,7 +101,7 @@ static bool FBCompareTypeEncoding(const char *objctype, POPValueType type)
 #else
       return false;
 #endif
-
+      
     case kPOPValueAffineTransform:
       return strcmp(objctype, @encode(CGAffineTransform)) == 0;
 
@@ -122,6 +122,21 @@ static bool FBCompareTypeEncoding(const char *objctype, POPValueType type)
               || strcmp(objctype, @encode(long long)) == 0
               || strcmp(objctype, @encode(unsigned long long)) == 0
               );
+      
+    case kPOPValueSCNVector3:
+#if SCENEKIT_SDK_AVAILABLE
+      return strcmp(objctype, @encode(SCNVector3)) == 0;
+#else
+      return false;
+#endif
+      
+    case kPOPValueSCNVector4:
+#if SCENEKIT_SDK_AVAILABLE
+      return strcmp(objctype, @encode(SCNVector4)) == 0;
+#else
+      return false;
+#endif
+      
     default:
       return false;
   }
@@ -148,9 +163,9 @@ POPValueType POPSelectValueType(id obj, const POPValueType *types, size_t length
   return kPOPValueUnknown;
 }
 
-const POPValueType kPOPAnimatableAllTypes[10] = {kPOPValueInteger, kPOPValueFloat, kPOPValuePoint, kPOPValueSize, kPOPValueRect, kPOPValueEdgeInsets, kPOPValueAffineTransform, kPOPValueTransform, kPOPValueRange, kPOPValueColor};
+const POPValueType kPOPAnimatableAllTypes[12] = {kPOPValueInteger, kPOPValueFloat, kPOPValuePoint, kPOPValueSize, kPOPValueRect, kPOPValueEdgeInsets, kPOPValueAffineTransform, kPOPValueTransform, kPOPValueRange, kPOPValueColor, kPOPValueSCNVector3, kPOPValueSCNVector4};
 
-const POPValueType kPOPAnimatableSupportTypes[8] = {kPOPValueInteger, kPOPValueFloat, kPOPValuePoint, kPOPValueSize, kPOPValueRect, kPOPValueEdgeInsets, kPOPValueColor};
+const POPValueType kPOPAnimatableSupportTypes[10] = {kPOPValueInteger, kPOPValueFloat, kPOPValuePoint, kPOPValueSize, kPOPValueRect, kPOPValueEdgeInsets, kPOPValueColor, kPOPValueSCNVector3, kPOPValueSCNVector4};
 
 NSString *POPValueTypeToString(POPValueType t)
 {
@@ -177,6 +192,10 @@ NSString *POPValueTypeToString(POPValueType t)
       return @"CFRange";
     case kPOPValueColor:
       return @"CGColorRef";
+    case kPOPValueSCNVector3:
+      return @"SCNVector3";
+    case kPOPValueSCNVector4:
+      return @"SCNVector4";
     default:
       return nil;
   }
@@ -210,6 +229,16 @@ id POPBox(VectorConstRef vec, POPValueType type, bool force)
       return (__bridge_transfer id)vec->cg_color();
       break;
     }
+#if SCENEKIT_SDK_AVAILABLE
+    case kPOPValueSCNVector3: {
+      return [NSValue valueWithSCNVector3:vec->scn_vector3()];
+      break;
+    }
+    case kPOPValueSCNVector4: {
+      return [NSValue valueWithSCNVector4:vec->scn_vector4()];
+      break;
+    }
+#endif
     default:
       return force ? [NSValue valueWithCGPoint:vec->cg_point()] : nil;
       break;
@@ -223,7 +252,11 @@ static VectorRef vectorize(id value, POPValueType type)
   switch (type) {
     case kPOPValueInteger:
     case kPOPValueFloat:
+#if CGFLOAT_IS_DOUBLE
+      vec = Vector::new_cg_float([value doubleValue]);
+#else
       vec = Vector::new_cg_float([value floatValue]);
+#endif
       break;
     case kPOPValuePoint:
       vec = Vector::new_cg_point([value CGPointValue]);
@@ -245,6 +278,14 @@ static VectorRef vectorize(id value, POPValueType type)
     case kPOPValueColor:
       vec = Vector::new_cg_color(POPCGColorWithColor(value));
       break;
+#if SCENEKIT_SDK_AVAILABLE
+    case kPOPValueSCNVector3:
+      vec = Vector::new_scn_vector3([value SCNVector3Value]);
+      break;
+    case kPOPValueSCNVector4:
+      vec = Vector::new_scn_vector4([value SCNVector4Value]);
+      break;
+#endif
     default:
       break;
   }
@@ -264,7 +305,7 @@ VectorRef POPUnbox(id value, POPValueType &animationType, NSUInteger &count, boo
 
   // handle unknown types
   if (kPOPValueUnknown == valueType) {
-    NSString *valueDesc = kPOPValueUnknown != valueType ? POPValueTypeToString(valueType) : [[value class] description];
+    NSString *valueDesc = [[value class] description];
     [NSException raise:@"Unsuported value" format:@"Animating %@ values is not supported", valueDesc];
   }
 
